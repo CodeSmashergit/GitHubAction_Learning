@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: GitHub Actions Demo - Shubham Agrawal
 
 on:
   push:
@@ -18,14 +18,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Output event name
-        run: echo "Event name:"
+        run: | 
+          echo "Event name: ${{github.event_name}}"
 
       - name: Output branch name
-        run: echo "Branch name:"
+        run: | 
+          echo "Branch name: ${{github.ref}}"
+
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: List all files
         run: ls -la
